@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EU261 Alternative Transport Decision Model</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="eyebrow">EU261 Prototype</p>
+        <h1>Alternative Transportation Decision Model</h1>
+        <p class="subhead">
+          Answer up to three questions to see the deterministic outcomes for ticket refunds, Ticket
+          Refund Plus, and reasonable measures.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="questionnaire-title">
+        <div class="panel-header">
+          <h2 id="questionnaire-title">Questionnaire</h2>
+          <div class="toggle" role="group" aria-labelledby="disruption-label">
+            <span id="disruption-label">Overnight disruption</span>
+            <label class="switch">
+              <input type="checkbox" id="disruptionTiming" />
+              <span class="slider" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <p class="question-label">Q1 — How did you get to the final destination?</p>
+          <div class="option-grid" id="q1">
+            <label class="option-card">
+              <input type="radio" name="q1" value="airline" />
+              <span>The airline arranged alternative transport</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1" value="self" />
+              <span>I booked alternative transport myself</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q1" value="abandoned" />
+              <span>I decided not to travel anymore</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" id="q2-field" hidden>
+          <p class="question-label">
+            Q2 — Did the airline offer you an alternative before you booked?
+          </p>
+          <div class="option-grid" id="q2">
+            <label class="option-card">
+              <input type="radio" name="q2" value="yes" />
+              <span>Yes</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q2" value="no" />
+              <span>No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" id="q3-field" hidden>
+          <p class="question-label">
+            Q3 — When was the earliest alternative the airline offered you?
+          </p>
+          <div class="option-grid" id="q3">
+            <label class="option-card">
+              <input type="radio" name="q3" value="same_day" />
+              <span>Same day</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3" value="next_day" />
+              <span>Next day</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3" value="two_plus_days" />
+              <span>Two or more days later</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="q3" value="unknown" />
+              <span>I don’t remember</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="reset">Reset answers</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="outcomes-title">
+        <div class="panel-header">
+          <h2 id="outcomes-title">Outcomes</h2>
+          <span class="status" id="status">Awaiting answers</span>
+        </div>
+        <div class="output" id="output" role="status" aria-live="polite"></div>
+        <details class="notes">
+          <summary>Decision rules applied</summary>
+          <ul>
+            <li>Reasonable Measures default to fulfilled unless airline failure is explicit.</li>
+            <li>Unknown timing never downgrades a claim.</li>
+            <li>Next-day offers depend on the day/night disruption flag.</li>
+          </ul>
+        </details>
+      </section>
+    </main>
+
+    <script src="decisionModel.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
