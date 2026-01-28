@@ -1,0 +1,150 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f7f8fb;
+  color: #12131a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+header {
+  display: grid;
+  gap: 12px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #6a6f7b;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.subhead {
+  margin: 0;
+  color: #4c5161;
+  max-width: 700px;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(30, 33, 41, 0.08);
+  display: grid;
+  gap: 16px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+}
+
+select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d7dbe8;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #d7dbe8;
+  background: #f1f3f8;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #e6e9f2;
+}
+
+.output {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 16px;
+  border-radius: 12px;
+  min-height: 160px;
+  font-family: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.status {
+  background: #eef2ff;
+  color: #3f3d56;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status.ready {
+  background: #e7f7ee;
+  color: #1b6b45;
+}
+
+.status.error {
+  background: #ffecec;
+  color: #8a1f1f;
+}
+
+.notes {
+  color: #4c5161;
+}
+
+.notes summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.notes ul {
+  padding-left: 18px;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 20px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+}
