@@ -2,6 +2,8 @@
 
 This prototype implements the deterministic decision model described in the spec. It accepts the questionnaire answers plus the global day/overnight flag and returns the resulting outcomes.
 
+The repo also ships a static web UI (`index.html`) designed for GitHub Pages so the model can be explored without running any build tooling.
+
 ## Inputs
 
 | Field | Values | When required |
@@ -48,3 +50,7 @@ Example output:
 - Reasonable Measures default to `true` unless explicit airline failure is indicated.
 - Missing or unknown offer timing does **not** penalize the claim.
 - The model is intended to be embedded in the mid-flow claim checker.
+
+## GitHub Pages
+
+Open `index.html` in GitHub Pages to explore the questionnaire and view outcomes. The web UI uses the same logic from `decisionModel.js` exposed on `window.DecisionModel`.

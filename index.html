@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EU261 Alternative Transport Decision Model</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <p class="eyebrow">EU261 Prototype</p>
+        <h1>Alternative Transportation Decision Model</h1>
+        <p class="subhead">
+          Answer up to three questions to see the deterministic outcomes for ticket refunds, Ticket
+          Refund Plus, and reasonable measures.
+        </p>
+      </header>
+
+      <section class="panel" aria-labelledby="questionnaire-title">
+        <h2 id="questionnaire-title">Questionnaire</h2>
+        <div class="field">
+          <label for="q1">Q1 — How did you get to the final destination?</label>
+          <select id="q1" name="q1">
+            <option value="">Select an answer</option>
+            <option value="airline">The airline arranged alternative transport</option>
+            <option value="self">I booked alternative transport myself</option>
+            <option value="abandoned">I decided not to travel anymore</option>
+          </select>
+        </div>
+
+        <div class="field" id="q2-field" hidden>
+          <label for="q2">Q2 — Did the airline offer you an alternative before you booked?</label>
+          <select id="q2" name="q2">
+            <option value="">Select an answer</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="field" id="q3-field" hidden>
+          <label for="q3">Q3 — When was the earliest alternative the airline offered you?</label>
+          <select id="q3" name="q3">
+            <option value="">Select an answer</option>
+            <option value="same_day">Same day</option>
+            <option value="next_day">Next day</option>
+            <option value="two_plus_days">Two or more days later</option>
+            <option value="unknown">I don’t remember</option>
+          </select>
+        </div>
+
+        <div class="field" id="disruption-field" hidden>
+          <label for="disruptionTiming">
+            Daytime / overnight disruption flag (from scheduled departure time)
+          </label>
+          <select id="disruptionTiming" name="disruptionTiming">
+            <option value="">Select a flag</option>
+            <option value="daytime">Daytime disruption</option>
+            <option value="overnight">Overnight disruption</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="reset">Reset answers</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="outcomes-title">
+        <div class="panel-header">
+          <h2 id="outcomes-title">Outcomes</h2>
+          <span class="status" id="status">Awaiting answers</span>
+        </div>
+        <div class="output" id="output" role="status" aria-live="polite"></div>
+        <details class="notes">
+          <summary>Decision rules applied</summary>
+          <ul>
+            <li>Reasonable Measures default to fulfilled unless airline failure is explicit.</li>
+            <li>Unknown timing never downgrades a claim.</li>
+            <li>Next-day offers depend on the day/night disruption flag.</li>
+          </ul>
+        </details>
+      </section>
+    </main>
+
+    <script src="decisionModel.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
